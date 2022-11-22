@@ -11,3 +11,7 @@ tar cf /home/backup_archive/pg_backup_$( date '+%Y-%m-%d_%H-%M-%S' ).tar -P /hom
 
 #Скопируем бэкап с контейнера на хост
 sudo docker cp postgres:/home/backup /home/backup
+
+#Скопируем файлы бекапа в папку, который будет монтироваться в контейнере postgres
+mkdir -p /home/pg_data/
+sudo docker cp -rf /home/backup/* /home/p_data/
