@@ -1,5 +1,8 @@
 #Сделаем бэкап базы в контейнере докера и перенесем на хост
 
+#Очистим предыдущий бекап
+docker exec -it postgres rm -rf /home/backup
+
 #Бэкап базы в контейнере
 docker exec -it postgres pg_basebackup -U postgres --pgdata=/home/backup;
 
